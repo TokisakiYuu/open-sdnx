@@ -1,7 +1,27 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# 默认导出
+# OpenSdnx Class
 
-23333
+这个类用于构造一个请求函数的上下文对象。
+
+## 用法
+
+```js
+const sdnx = new OpenSdnx(config)
+```
+
+#### 为每个请求带上Token
+
+```js
+const sdnx = new OpenSdnx({
+  headers: {
+    sdnxRequestId: 'sd_token_xxxxxxxxxxxxxxxxxx'
+  }
+})
+```
+
+## config
+
+参考Axios的 [Request Config](https://axios-http.com/docs/req_config)

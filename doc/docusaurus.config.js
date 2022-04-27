@@ -47,7 +47,7 @@ const config = {
             position: 'right',
             label: '指引',
           },
-          { to: '/docs/client/constructor', label: 'client', position: 'right' },
+          { to: '/docs/client/intro', label: 'Client', position: 'right' },
           { to: '/docs/api/hello', label: 'API', position: 'right' },
           {
             href: 'https://github.com/facebook/docusaurus',
