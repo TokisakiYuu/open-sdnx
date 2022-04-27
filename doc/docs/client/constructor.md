@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# OpenSdnx Class
+# OpenSdnx类
 
 这个类用于构造一个请求函数的上下文对象。
 
