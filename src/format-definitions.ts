@@ -1,3 +1,5 @@
+import { parseType } from './utils'
+
 /**
  * 处理实体类
  */
@@ -34,44 +36,6 @@ function formatProperties(properties: any, required: string[]): Property[] {
       comment: description
     }
   })
-}
-
-/**
- * 从属性对象中解析出类型
- */
-function parseType(property: any) {
-  const { type, items, $ref } = property
-  if ($ref) {
-    return getEntiryNameFromRef($ref)
-  }
-  if (items) {
-    return parseType(items)
-  }
-  // TODO 对于additionalProperties字段的行为尚不完全明确，待有实际完整清晰的案例之后再完善这部分
-  return transformTypeName(type)
-}
-
-function transformTypeName(type: string) {
-  switch (type) {
-    case 'integer':
-      return 'number'
-    case 'object':
-      return 'any'
-    default:
-      return type
-  }
-}
-
-/**
- * 从引用链接中获取实体名
- * @example
- * ```txt
- * #/definitions/公司账号信息
- * ```
- * 提取出"公司账号信息"
- */
-function getEntiryNameFromRef(ref: string) {
-  return ref.replace(/^#\/definitions\//, '')
 }
 
 export interface Entity {

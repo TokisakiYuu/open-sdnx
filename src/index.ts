@@ -1,4 +1,5 @@
-import formatDefinitions from './formatDefinitions'
+import formatDefinitions from './format-definitions'
+import formathApi from './format-api'
 
 /**
  * 把原始对象格式化成方便我处理的格式
@@ -7,8 +8,11 @@ import formatDefinitions from './formatDefinitions'
 function process(origin: any) {
   // 处理实体类
   const entities = formatDefinitions(origin.definitions)
+  // 处理接口
+  const apis = formathApi(origin.paths)
   return {
-    entities
+    entities,
+    apis
   }
 }
 
